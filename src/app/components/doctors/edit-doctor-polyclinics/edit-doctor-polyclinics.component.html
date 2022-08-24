@@ -30,6 +30,8 @@
         </tbody>
     </table>
 
+    <p *ngIf="!polyclinics || polyclinics.length <= 0">Поликлиники не найдены</p>
+
     <div class="col-3">
         <h4 class="mb-3">Выберите поликлинику:</h4>
         <select class="form-select mb-3" aria-label=".form-select example"
@@ -39,6 +41,5 @@
         </select>
         <a (click)="addDoctorPolyclinic()" class="btn btn-primary">Добавить</a>
     </div>
-
-    <p *ngIf="!polyclinics || polyclinics.length <= 0">Поликлиники не найдены</p>
+    
 </div>

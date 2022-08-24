@@ -23,6 +23,8 @@
         </tbody>
     </table>
 
+    <p *ngIf="!specializations || specializations.length <= 0">Специализации не найдены</p>
+    
     <div class="col-3">
         <h4 class="mb-3">Выберите специализацию:</h4>
         <select class="form-select mb-3" aria-label=".form-select example"
@@ -33,5 +35,4 @@
         <a (click)="addDoctorSpecialization()" class="btn btn-primary">Добавить</a>
     </div>
     
-    <p *ngIf="!specializations || specializations.length <= 0">Специализации не найдены</p>
 </div>
