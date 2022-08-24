@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <h1 class="mb-3">Доктора</h1>
+
+    <table class="table" *ngIf="doctors && doctors.length > 0">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Id</th>
+                <th>Полное имя</th>
+                <th>Путь к фото</th>
+                <th> </th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctors; let i=index">
+                <td>{{ i+1 }}</td>
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.fullName }}</td>
+                <td>{{ doctor.photo }}</td>
+                <td><a [routerLink]="['/doctors', 'edit', doctor.id]" class="btn  btn-outline-primary">Изменить</a></td>
+                <td><a [routerLink]="['/doctors', 'editDoctorSpecializations', doctor.id]" class="btn  btn-primary">Специализации</a></td>
+                <td><a [routerLink]="['/doctors', 'editDoctorPolyclinics', doctor.id]" class="btn  btn-primary">Поликлиники</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!doctors || doctors.length <= 0">Сотрудники не найдены</p>
+</div>
