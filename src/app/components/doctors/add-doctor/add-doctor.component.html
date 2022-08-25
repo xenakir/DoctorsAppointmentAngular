@@ -7,8 +7,11 @@
 
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Полное имя</label>
-                    <input type="text" class="form-control" id="fullName"
-                    name="fullName" [(ngModel)]="addDoctorRequest.fullName">
+                    <input type="text" class="form-control" name="fullName" 
+                    [(ngModel)]="addDoctorRequest.fullName" #fullName="ngModel" required/>
+                    <div [hidden]="fullName.valid || fullName.untouched" class="alert alert-danger">
+                      Введите имя
+                    </div>
                 </div>
         
                 <button type="submit" class="btn btn-primary">Сохранить</button>

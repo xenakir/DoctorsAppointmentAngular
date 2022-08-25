@@ -13,8 +13,11 @@
 
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Полное имя</label>
-                    <input type="text" class="form-control" id="fullName" 
-                    name="fullName" [(ngModel)]="doctorDetails.fullName">
+                    <input type="text" class="form-control" name="fullName" 
+                    [(ngModel)]="doctorDetails.fullName" #fullName="ngModel" required/>
+                    <div [hidden]="fullName.valid || fullName.untouched" class="alert alert-danger">
+                      Введите имя
+                    </div>
                 </div>
 
                 <div class="mb-3">
