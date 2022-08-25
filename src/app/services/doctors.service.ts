@@ -9,6 +9,7 @@ import { DoctorPolyclinic } from '../models/doctorPolyclinic';
 import { Polyclinic } from '../models/polyclinic.model';
 import { Specialization } from '../models/specialization.model';
 import { UpdateDoctor } from '../models/updateDoctor.model';
+import { DoctorsPhoto } from '../models/doctorsPhoto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -90,5 +91,10 @@ export class DoctorsService {
   getAllPolyclinics(): Observable<Polyclinic[]> {
     return this.http.get<Polyclinic[]>(this.baseApiUrl + 
       '/api/polyclinic/getPolyclinics');
+  }
+
+  //Добавление фотографии доктора
+  addDoctorsPhoto(request: DoctorsPhoto): Observable<DoctorsPhoto> {
+    return this.http.post<DoctorsPhoto>(this.baseApiUrl + '/api/doctor/addDoctorsPhoto/' + request.id, request);
   }
 }

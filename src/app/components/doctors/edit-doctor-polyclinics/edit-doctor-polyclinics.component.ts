@@ -4,6 +4,7 @@ import { Doctor } from 'src/app/models/doctor.model';
 import { DoctorPolyclinic } from 'src/app/models/doctorPolyclinic';
 import { Polyclinic } from 'src/app/models/polyclinic.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit-doctor-polyclinics',
@@ -12,6 +13,8 @@ import { DoctorsService } from 'src/app/services/doctors.service';
 })
 export class EditDoctorPolyclinicsComponent implements OnInit {
 
+  baseApiUrl: string = environment.baseApiUrl;
+  
   doctorDetails: Doctor = {
     id: '',
     fullName: '',

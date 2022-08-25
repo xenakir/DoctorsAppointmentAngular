@@ -9,6 +9,7 @@
                 <th>Адрес</th>
                 <th>Координаты</th>
                 <th>Город</th>
+                <th>Фото</th>
                 <th> </th>
             </tr>
         </thead>
@@ -19,6 +20,7 @@
                 <td>{{ polyclinic.address }}</td>
                 <td>{{ polyclinic.location }}</td>
                 <td>{{ polyclinic.cityName }}</td>
+                <td><img src="{{baseApiUrl}}{{polyclinic.photo}}" alt="photo" class="object-fit_cover size-140"></td>
                 <td><a (click)="deleteDoctorPolyclinic(doctorDetails.id, polyclinic.id)" 
                     class="btn btn-danger">Удалить</a>
                 </td>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/models/doctor.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-doctors-list',
@@ -9,6 +10,7 @@ import { DoctorsService } from 'src/app/services/doctors.service';
 })
 export class DoctorsListComponent implements OnInit {
 
+  baseApiUrl: string = environment.baseApiUrl;
   doctors: Doctor[] = [];
   constructor(private doctorsService: DoctorsService) { }
 

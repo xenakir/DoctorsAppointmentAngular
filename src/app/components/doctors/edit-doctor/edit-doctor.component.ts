@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/models/doctor.model';
+import { DoctorsPhoto } from 'src/app/models/doctorsPhoto.model';
 import { DoctorsService } from 'src/app/services/doctors.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit-doctor',
@@ -10,6 +12,11 @@ import { DoctorsService } from 'src/app/services/doctors.service';
 })
 export class EditDoctorComponent implements OnInit {
 
+  url = '';
+  photoAvailability: boolean = true;
+  selectedFile: any;
+  baseApiUrl: string = environment.baseApiUrl;
+  
   doctorDetails: Doctor = {
     id: '',
     fullName: '',
@@ -35,6 +42,10 @@ export class EditDoctorComponent implements OnInit {
         }
       }
     });
+    
+    // if(this.doctorDetails.photo == ''){
+    //   this.photoAvailability = false;
+    // }
   }
 
   updateDoctor(){
@@ -44,6 +55,7 @@ export class EditDoctorComponent implements OnInit {
         this.router.navigate(['doctors']);
       }
     });
+    //this.addDoctorsPhoto();
   }
 
   deleteDoctor(id: string){
@@ -54,4 +66,20 @@ export class EditDoctorComponent implements OnInit {
       }
     })
   }
+
+  onFileSelected(event: any) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  // addDoctorsPhoto(){
+  //   const filedata = new FormData();
+  //   let request: DoctorsPhoto = {file: this.selectedFile, id: this.doctorDetails.id};
+  //   // filedata.append('image', this.selectedFile, this.selectedFile.fullName);
+  //   this.doctorsService.addDoctorsPhoto(request)
+  //   .subscribe ({
+  //     next: (response) => {
+  //       this.router.navigate(['doctors']);
+  //     }
+  //   });
+  // }
 }

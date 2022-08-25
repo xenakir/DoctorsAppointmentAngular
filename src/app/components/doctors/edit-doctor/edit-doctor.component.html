@@ -17,6 +17,17 @@
                     name="fullName" [(ngModel)]="doctorDetails.fullName">
                 </div>
 
+                <div class="mb-3">
+                    <label for="id" class="form-label">Фото</label>
+                    <div>
+                        <div *ngIf="photoAvailability">
+                            <img src="{{baseApiUrl}}{{doctorDetails.photo}}" 
+                        alt="photo" class="object-fit_cover size-170">
+                        </div>
+                        <!-- <input type="file" id="img" accept="image/*" (change)="onFileSelected($event)" class="form-control"/> -->
+                    </div>
+                </div>
+                
                 <div class="row">
                     <div class="col-3">
                       <button type="submit" class="btn btn-primary">Сохранить</button>
